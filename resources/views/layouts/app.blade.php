@@ -17,7 +17,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="max-w-7xl mx-3 xl:mx-auto border">
+        <div class="max-w-7xl mx-3 xl:mx-auto">
 
             @yield('header')
 
