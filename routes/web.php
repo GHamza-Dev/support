@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::prefix('admin')->group(function(){
+    Route::get('/login',[AdminController::class,'index'])->name('login_form');
+    Route::post('/login/owner',[AdminController::class,'login'])->name('admin.login');
+    Route::get('/dashboard',[AdminController::class,'dashboard'])
+                ->name('admin.dashboard')->middleware('admin');
+    Route::get('/logout',[AdminController::class,'logout'])
+                ->name('admin.logout')->middleware('admin');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
