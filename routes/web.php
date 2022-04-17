@@ -4,6 +4,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +40,17 @@ Route::prefix('ticket')->group(function(){
     Route::get('/create',[TicketController::class,'create'])->middleware(['auth'])->name('create.ticket');
     Route::post('/store',[TicketController::class,'store'])->middleware(['auth'])->name('store.ticket');
 });
+
+// --> User: Logout
+
+Route::get('/logout',function(Request $request){
+    Auth::logout();
+ 
+    $request->session()->invalidate();
+ 
+    $request->session()->regenerateToken();
+ 
+    return redirect('/');
+})->name('user.logout');
 
 require __DIR__.'/auth.php';
