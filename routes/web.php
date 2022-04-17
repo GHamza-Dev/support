@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function(){
     Route::get('/login',[AdminController::class,'index'])->name('login_form');
     Route::post('/login/owner',[AdminController::class,'login'])->name('admin.login');
-    Route::get('/dashboard',[AdminController::class,'dashboard'])
-                ->name('admin.dashboard')->middleware('admin');
-    Route::get('/logout',[AdminController::class,'logout'])
-                ->name('admin.logout')->middleware('admin');
+    Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard')->middleware('admin');
+    Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout')->middleware('admin');
 });
 
 
@@ -36,8 +34,8 @@ Route::get('/dashboard', function () {
 // --> User: ticket
 
 Route::prefix('ticket')->group(function(){
-    Route::get('/create',[TicketController::class,'create'])->name('create.ticket');
-    Route::post('/store',[TicketController::class,'store'])->name('store.ticket');
+    Route::get('/create',[TicketController::class,'create'])->middleware(['auth'])->name('create.ticket');
+    Route::post('/store',[TicketController::class,'store'])->middleware(['auth'])->name('store.ticket');
 });
 
 require __DIR__.'/auth.php';
