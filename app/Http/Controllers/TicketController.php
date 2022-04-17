@@ -15,7 +15,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        echo 'Ticket - index';
+        return view('user.tickets');
     }
 
     /**

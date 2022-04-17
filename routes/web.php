@@ -37,6 +37,7 @@ Route::get('/dashboard', function () {
 // --> User: ticket
 
 Route::prefix('ticket')->group(function(){
+    Route::get('/index',[TicketController::class,'index'])->middleware(['auth'])->name('ticket.all');
     Route::get('/create',[TicketController::class,'create'])->middleware(['auth'])->name('create.ticket');
     Route::post('/store',[TicketController::class,'store'])->middleware(['auth'])->name('store.ticket');
 });
