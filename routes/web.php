@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// --> User: ticket
+
+Route::prefix('ticket')->group(function(){
+    Route::get('/create',[TicketController::class,'create'])->name('create.ticket');
+});
 
 require __DIR__.'/auth.php';
