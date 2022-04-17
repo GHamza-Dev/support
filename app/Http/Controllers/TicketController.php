@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -15,7 +17,12 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('user.tickets');
+        $user_id = auth::user()->id;
+        $tickets = User::find($user_id)->tickets;
+        // dd($tickets);
+        // dd(auth::user());
+
+        return view('user.tickets',['tickets'=>$tickets]);
     }
 
     /**

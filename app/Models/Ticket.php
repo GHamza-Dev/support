@@ -15,4 +15,8 @@ class Ticket extends Model
         'title',
         'description',
     ];
+
+    // public function user(){
+    //     return $this->hasOne(User::class);
+    // }
 }
