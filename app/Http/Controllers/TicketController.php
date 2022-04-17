@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -35,7 +36,23 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'title' => 'required|string|max:20',
+            'service_id' => 'required|integer',
+            'description' => 'required|string|min:20'
+        ]);
+
+        $ticket = Ticket::create([
+            'user_id'=> auth()->user()->id,
+            'title' => $request->title,
+            'service_id' => $request->service_id,
+            'description' => $request->description,
+        ]);
+
+        $request->session()->flash('alert',['status'=> 'success','msg'=>'You have successfully created a ticket']);
+        return redirect()->route('create.ticket');
+
     }
 
     /**

@@ -37,6 +37,7 @@ Route::get('/dashboard', function () {
 
 Route::prefix('ticket')->group(function(){
     Route::get('/create',[TicketController::class,'create'])->name('create.ticket');
+    Route::post('/store',[TicketController::class,'store'])->name('store.ticket');
 });
 
 require __DIR__.'/auth.php';
