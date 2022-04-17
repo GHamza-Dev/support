@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -23,7 +24,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        return view('user.addticket');
+        return view('user.addticket',['services'=>Service::all()]);
     }
 
     /**

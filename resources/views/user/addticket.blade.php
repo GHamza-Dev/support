@@ -21,10 +21,9 @@
                         <div>
                           <select id="service" name="service" class="block appearance-none w-full bg-gray-50 border text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                             <option value="null">--Service--</option>
-                            <option value="1">Sales</option>
-                            <option value="2">Latency</option>
-                            <option value="3">Something 1</option>
-                            <option value="4">Something 2</option>
+                            @foreach ($services as $service)
+                                <option value="{{ $service->id }}">{{ $service->name }}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
