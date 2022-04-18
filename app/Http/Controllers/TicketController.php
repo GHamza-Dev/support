@@ -94,15 +94,18 @@ class TicketController extends Controller
         return view('answers',['ticket'=>$ticket[0],'answers'=>$answers]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function solve($id){
+        $ticket = Ticket::findOrFail($id);
+        $ticket->status = 'solved';
+        $ticket->save();
+        return back();
+    }
+    
+    public function close($id){
+        $ticket = Ticket::findOrFail($id);
+        $ticket->status = 'closed';
+        $ticket->save();
+        return back();
     }
 
     /**
