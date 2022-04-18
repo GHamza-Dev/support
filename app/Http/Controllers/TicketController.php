@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Service;
 use App\Models\Ticket;
 use App\Models\User;
@@ -87,7 +88,10 @@ class TicketController extends Controller
                 ->select('users.fname','users.lname','tickets.*')
                 ->where('tickets.id','=',$id)
                 ->get();
-        return view('answers',['ticket'=>$ticket[0]]);
+        
+        $answers = Answer::all()->where('ticket_id','=',$id);
+        
+        return view('answers',['ticket'=>$ticket[0],'answers'=>$answers]);
     }
 
     /**

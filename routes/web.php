@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\AnswerController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
@@ -41,6 +42,12 @@ Route::prefix('ticket')->group(function(){
     Route::get('/create',[TicketController::class,'create'])->middleware(['auth'])->name('create.ticket');
     Route::get('/show/{id}',[TicketController::class,'show'])->middleware(['auth'])->name('show.ticket');
     Route::post('/store',[TicketController::class,'store'])->middleware(['auth'])->name('store.ticket');
+});
+
+// --> Answer:
+
+Route::prefix('answer')->group(function(){
+    Route::post('/store',[AnswerController::class,'store'])->middleware(['auth'])->name('add.answer');
 });
 
 // --> User: Logout
