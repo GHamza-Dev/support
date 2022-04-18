@@ -15,4 +15,7 @@
 .solved{
     @apply label text-green-700 bg-green-300;
 }
+.closed{
+    @apply label text-gray-700 bg-gray-300;
+}
 

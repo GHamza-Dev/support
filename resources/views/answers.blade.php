@@ -27,9 +27,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <span class="{{ $ticket->status }} last:mr-0 mr-1">
-                        {{ $ticket->status }}
-                    </span>
+                    @include('components.status',['status'=> $ticket->status])
                 </div>
             </div>
             <!-- End ticket head -->

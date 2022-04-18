@@ -2560,9 +2560,6 @@ body[dir="rtl"] .checkbox:checked,
 .ml-2 {
   margin-left: 0.5rem;
 }
-.mr-1 {
-  margin-right: 0.25rem;
-}
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -2598,6 +2595,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .mb-3 {
   margin-bottom: 0.75rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
 }
 .ml-4 {
   margin-left: 1rem;
@@ -3407,6 +3407,39 @@ body[dir="rtl"] .checkbox:checked,
   background-color: rgb(134 239 172 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(21 128 61 / var(--tw-text-opacity));
+  display: inline-block;
+  border-radius: 9999px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.closed {
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.closed a:hover {
+  --tw-text-opacity: 1;
+  color: hsl(var(--bc) / var(--tw-text-opacity));
+}
+.closed {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
   display: inline-block;
   border-radius: 9999px;
   padding-top: 0.25rem;
