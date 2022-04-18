@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,10 @@ class AnswerController extends Controller
             'answerable_id' => $request->answerable_id,
             'answerable_type' => trim(auth::user()->getTable(),'s'),
         ]);
+
+        $ticket = Ticket::find($request->ticket_id);
+        $ticket->status = 'answered';
+        $ticket->save();
 
         return back();
     }

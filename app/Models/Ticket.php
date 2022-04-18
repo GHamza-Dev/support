@@ -14,6 +14,7 @@ class Ticket extends Model
         'service_id',
         'title',
         'description',
+        'status'
     ];
 
     public function answers(){

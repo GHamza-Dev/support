@@ -3,21 +3,16 @@
 @import 'tailwindcss/utilities';
 
 
-@layer components {
-
-    .lable{
-        @apply text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full;
-    }
-
-    .new{
-        @apply lable text-red-700 bg-red-300;
-    }
-
-    .answred{
-        @apply lable text-blue-700 bg-blue-300;
-    }
-
-    .solved{
-        @apply lable text-green-700 bg-green-300;
-    }
+.label{
+    @apply text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full;
 }
+.new{
+    @apply label text-red-700 bg-red-300;
+}
+.answered{
+    @apply label text-blue-700 bg-blue-300;
+}
+.solved{
+    @apply label text-green-700 bg-green-300;
+}
+
