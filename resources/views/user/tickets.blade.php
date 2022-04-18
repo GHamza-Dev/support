@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-700 bg-red-300 last:mr-0 mr-1">
+                        <span class="{{ $tkt->status }} last:mr-0 mr-1">
                             {{ $tkt->status }}
                         </span>
                     </div>

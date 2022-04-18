@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-orange-700 bg-orange-300 last:mr-0 mr-1">
+                    <span class="{{ $ticket->status }} last:mr-0 mr-1">
                         {{ $ticket->status }}
                     </span>
                 </div>
