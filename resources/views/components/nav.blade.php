@@ -1,4 +1,4 @@
-<div class="flex justify-between border h-16 items-center mt-2 rounded-md px-2">
+<div class="flex justify-between border h-16 items-center mt-2 rounded-md px-2 bg-white">
     <div class="text-2xl font-semibold">
         Supp<span class="inline-block animate- bounce text-blue-600">o</span>rt
     </div>

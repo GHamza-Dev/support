@@ -8,7 +8,7 @@
 
 @section('content')
     @foreach ($tickets as $tkt)
-        <div class="mt-8 w-full max-w-lg mx-auto border rounded-md p-2">
+        <div class="mt-8 w-full max-w-lg mx-auto border rounded-md p-2 bg-white">
             <!-- ticket head -->
             <div class="flex justify-between items-centr ">
                     <div class="flex items-center">

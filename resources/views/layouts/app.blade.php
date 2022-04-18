@@ -18,6 +18,14 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <style>
+            body {
+                background-image: radial-gradient(#949ebe17 20%, transparent 20%);
+                background-position: 0 0, 50px 50px;
+                background-size: 10px 10px;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <div class="max-w-7xl mx-3 xl:mx-auto">

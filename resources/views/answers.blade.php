@@ -55,7 +55,7 @@
             <!-- Add answer * -->
             <div class="mt-12 w-11/12 relative bg-white">
                 <div class="flex items-center absolute -top-9 left-7">
-                    <div class="w-6 h-6 bg-green-600 border-4 border-green-300 rounded-full"></div>
+                    <div class="w-6 h-6 bg-green-600 border-4 animate-pulse border-green-300 rounded-full"></div>
                     <label for="add-answer" class="ml-2">Reply</label>
                 </div>
                 <div class="border border-green-600 rounded-md p-2">
