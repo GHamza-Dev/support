@@ -36,8 +36,8 @@
             <!-- ticket footer -->
             <hr class="mt-3">
             <div class="mt-3 flex items-center">
-                <div class="flex items-center text-blue-500"><a href="#"><i class="fa-solid fa-comment-dots"></i><span>(3)</span></a></div>
-                <div class="flex items-center ml-2"><a href="#"><span></span>Add Response</a></div>
+                <div class="flex items-center text-blue-500"><a href="{{ route('show.ticket',['id'=>$tkt->id]) }}"><i class="fa-solid fa-comment-dots"></i><span>(3)</span></a></div>
+                <div class="flex items-center ml-2"><a href="{{ route('show.ticket',['id'=>$tkt->id]) }}"><span></span>Add Response</a></div>
             </div>
             <!-- End ticket footer -->
         </div>

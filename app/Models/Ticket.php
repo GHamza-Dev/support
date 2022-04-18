@@ -16,7 +16,7 @@ class Ticket extends Model
         'description',
     ];
 
-    // public function user(){
-    //     return $this->hasOne(User::class);
-    // }
+    public function answers(){
+        return $this->hasMany(Answer::class);
+    }
 }

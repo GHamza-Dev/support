@@ -7,6 +7,7 @@ use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
@@ -19,8 +20,19 @@ class TicketController extends Controller
     {
         $user_id = auth::user()->id;
         $tickets = User::find($user_id)->tickets;
+
+        // $tickets = DB::table('users')
+        //     ->join('tickets','tickets.user_id','=','users.id')
+        //     ->leftJoin('answers','answers.ticket_id','=','tickets.id')
+        //     ->where('users.id','=',$user_id)
+        //     ->select('users.*','tickets.*')
+        //     // ->select(DB::raw('count(answers.ticket_id) as nbr'))
+        //     // ->groupBy('answers.ticket_id')
+        //     // ->distinct('answers.ticket_id')
+        //     ->get();
+
         // dd($tickets);
-        // dd(auth::user());
+        // // dd(auth::user());
 
         return view('user.tickets',['tickets'=>$tickets]);
     }
@@ -70,7 +82,12 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-        //
+        $ticket = DB::table('tickets')
+                ->join('users','users.id','=','user_id')
+                ->select('users.fname','users.lname','tickets.*')
+                ->where('tickets.id','=',$id)
+                ->get();
+        return view('answers',['ticket'=>$ticket[0]]);
     }
 
     /**
