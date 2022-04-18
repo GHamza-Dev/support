@@ -58,14 +58,14 @@
             <div class="mt-12 w-11/12 relative bg-white">
                 <div class="flex items-center absolute -top-9 left-7">
                     <div class="w-6 h-6 bg-green-600 border-4 border-green-300 rounded-full"></div>
-                    <label for="answer" class="ml-2">Reply</label>
+                    <label for="add-answer" class="ml-2">Reply</label>
                 </div>
                 <div class="border border-green-600 rounded-md p-2">
                     <form action="{{ route('add.answer') }}" method="post">
                         @csrf
                         <input type="hidden" name='answerable_id' value="{{ $ticket->user_id }}">
                         <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
-                        <textarea id="answer" name="content" rows="5" class="h-full w-full border-none appearance-none block bg-gray-100 text-gray-700 border rounded leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="Your answer..."></textarea>
+                        <textarea id="add-answer" name="content" rows="5" class="h-full w-full border-none appearance-none block bg-gray-100 text-gray-700 border rounded leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="Your answer..."></textarea>
                         <div class="w-full mt-2 px-3 grid place-content-end">
                             <button class="border tracking-wider font-semibold bg-blue-600 transition text-slate-50 p-2 px-3 rounded-md hover:scale-105 hover:bg-blue-700" type="submit">Submit</button>
                         </div>
