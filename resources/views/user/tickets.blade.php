@@ -7,6 +7,22 @@
 @endsection
 
 @section('content')
+    <div class="mt-8 w-full max-w-lg mx-auto">
+        <form action="">
+            <div class="flex flex-row">
+                <div>
+                    <select class="border border-gray-400 rounded-l-md" name="term" id="serlect">
+                        <option selected value="1">Keywords</option>
+                        <option value="2">Title</option>
+                        <option value="3">Status</option>
+                    </select>
+                </div>
+                <div class="grow">
+                    <input class="w-full border border-gray-400 rounded-r-md" type="search" placeholder="Hit Enter...">
+                </div>
+            </div>
+        </form>
+    </div>
     @foreach ($tickets as $tkt)
         <div class="mt-8 w-full max-w-lg mx-auto border rounded-md p-2 bg-white">
             <!-- ticket head -->
