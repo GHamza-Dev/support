@@ -8,17 +8,18 @@
 
 @section('content')
     <div class="mt-8 w-full max-w-lg mx-auto">
-        <form action="">
+        <form action="{{ route('search.ticket') }}" method="POST">
+            @csrf
             <div class="flex flex-row">
                 <div>
                     <select class="border border-gray-400 rounded-l-md" name="term" id="serlect">
                         <option selected value="1">Keywords</option>
-                        <option value="2">Title</option>
+                        <option value="2">Service</option>
                         <option value="3">Status</option>
                     </select>
                 </div>
                 <div class="grow">
-                    <input class="w-full border border-gray-400 rounded-r-md" type="search" placeholder="Hit Enter...">
+                    <input name="search" class="w-full border border-gray-400 rounded-r-md" type="search" placeholder="Hit Enter...">
                 </div>
             </div>
         </form>
@@ -50,7 +51,7 @@
             <!-- ticket footer -->
             <hr class="mt-3">
             <div class="mt-3 flex items-center">
-                <div class="flex items-center text-blue-500"><a href="{{ route('show.ticket',['id'=>$tkt->id]) }}"><i class="fa-solid fa-comment-dots"></i><span>(3)</span></a></div>
+                <div class="flex items-center text-blue-500"><a href="{{ route('show.ticket',['id'=>$tkt->id]) }}"><i class="fa-solid fa-comment-dots"></i><span>[{{ $tkt->answers_count }}]</span></a></div>
                 <div class="flex items-center ml-2 text-blue-400"><a href="{{ route('show.ticket',['id'=>$tkt->id,'#add-answer']) }}"><span></span>Add Response</a></div>
                 <div class="flex items-center ml-2 text-green-500"><a href="{{ route('solve.ticket',['id'=>$tkt->id]) }}"><span></span>Make as Solved</a></div>
                 <div class="flex items-center ml-2 text-gray-500"><a href="{{ route('close.ticket',['id'=>$tkt->id]) }}"><span></span>Close</a></div>

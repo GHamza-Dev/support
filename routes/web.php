@@ -44,6 +44,7 @@ Route::prefix('ticket')->group(function(){
     Route::post('/store',[TicketController::class,'store'])->middleware(['auth'])->name('store.ticket');
     Route::get('/solve/{id}',[TicketController::class,'solve'])->middleware(['auth'])->name('solve.ticket');
     Route::get('/close/{id}',[TicketController::class,'close'])->middleware(['auth'])->name('close.ticket');
+    Route::post('/search',[TicketController::class,'search'])->middleware(['auth'])->name('search.ticket');
 });
 
 // --> Answer:

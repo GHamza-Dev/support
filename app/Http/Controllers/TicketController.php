@@ -16,7 +16,34 @@ class TicketController extends Controller
     public function index()
     {
         $user_id = auth::user()->id;
-        $tickets = User::find($user_id)->tickets;
+
+        $tickets = DB::table('tickets')
+            ->join('answers', 'tickets.id', '=', 'answers.ticket_id')
+            ->select('tickets.*', DB::raw('count(answers.id) as answers_count'))
+            ->where('tickets.user_id', $user_id)
+            ->groupBy('tickets.id')
+            ->get();
+                     
+        return view('user.tickets',['tickets'=>$tickets]);
+    }
+
+    public function search(Request $request){
+        $user_id = auth::user()->id;
+        $tickets = [];
+
+        if ($request->term == 1) {
+            $tickets = Ticket::query()
+            ->where('user_id','=',$user_id) 
+            ->where('title', 'LIKE', "%{$request->search}%") 
+            ->get();
+        }elseif($request->term == 2){
+            $tickets = Ticket::query()
+            ->join('services','services.name','=',$request->search)
+            ->where('user_id','=',$user_id) 
+            ->where('title', 'LIKE', "%{$request->search}%") 
+            ->get();
+        }
+
         return view('user.tickets',['tickets'=>$tickets]);
     }
 
