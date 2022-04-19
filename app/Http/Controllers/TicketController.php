@@ -16,14 +16,14 @@ class TicketController extends Controller
     public function index()
     {
         $user_id = auth::user()->id;
-
+    
         $tickets = DB::table('tickets')
-            ->join('answers', 'tickets.id', '=', 'answers.ticket_id')
+            ->leftJoin('answers', 'tickets.id', '=', 'answers.ticket_id')
             ->select('tickets.*', DB::raw('count(answers.id) as answers_count'))
             ->where('tickets.user_id', $user_id)
             ->groupBy('tickets.id')
             ->get();
-                     
+         
         return view('user.tickets',['tickets'=>$tickets]);
     }
 
