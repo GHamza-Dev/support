@@ -45,7 +45,6 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'title' => 'required|string|max:20',
             'service_id' => 'required|integer',
