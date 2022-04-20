@@ -36,10 +36,10 @@
             <div class="flex justify-between items-centr ">
                     <div class="flex items-center">
                         <p class="bg-slate-500 text-white rounded-full flex justify-center items-center" style="width: 3.5rem;height:3.5rem">
-                            <span class="text-2xl font-semibold">{{ auth::user()->fname[0] }}</span>
+                            <span class="text-2xl font-semibold">{{ $tkt->fname[0].$tkt->lname[0] }}</span>
                         </p>
                         <div class="ml-2">
-                            <h3 class="font-bold text-xl text-slate-800">{{ auth::user()->fname }}</h3>
+                            <h3 class="font-bold text-xl text-slate-800">{{ $tkt->fname }}</h3>
                             <p class="text-sm">{{ $tkt->created_at }}</p>
                         </div>
                     </div>

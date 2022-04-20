@@ -26,7 +26,8 @@ class Ticket extends Model
     public static function _getTickets($uid = null){
         $tickets = DB::table('tickets')
             ->leftJoin('answers', 'tickets.id', '=', 'answers.ticket_id')
-            ->select('tickets.*', DB::raw('count(answers.id) as answers_count'))
+            ->join('users','tickets.user_id','=','users.id')
+            ->select('tickets.*','users.fname','users.lname', DB::raw('count(answers.id) as answers_count'))
             ->groupBy('tickets.id');
             
         return $uid ? $tickets->where('tickets.user_id', $uid) : $tickets;
