@@ -26,7 +26,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button class="bg-blue-600 font-semibold text-white border border-blue-600 rounded-r-md">Search</button>
+                <button class="bg-blue-600 font-semibold text-white border border-blue-600 rounded-r-md px-3"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
     </div>
