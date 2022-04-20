@@ -13,38 +13,29 @@ use Illuminate\Support\Facades\DB;
 class TicketController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $user_id = auth::user()->id;
-    
-        $tickets = DB::table('tickets')
-            ->leftJoin('answers', 'tickets.id', '=', 'answers.ticket_id')
-            ->select('tickets.*', DB::raw('count(answers.id) as answers_count'))
-            ->where('tickets.user_id', $user_id)
-            ->groupBy('tickets.id')
-            ->get();
-         
-        return view('user.tickets',['tickets'=>$tickets]);
+
+        if ($request->method() === 'POST') {
+            $tickets = $this->search($request,$user_id);
+        }else $tickets = Ticket::getAll($user_id); 
+        
+        return view('user.tickets',['tickets'=>$tickets,'services'=>Service::all()]);
     }
 
-    public function search(Request $request){
-        $user_id = auth::user()->id;
+    public function search(Request $request,$user_id){
         $tickets = [];
 
         if ($request->term == 1) {
-            $tickets = Ticket::query()
-            ->where('user_id','=',$user_id) 
-            ->where('title', 'LIKE', "%{$request->search}%") 
-            ->get();
+            $tickets = Ticket::getByKeyword($request->search,$user_id);
         }elseif($request->term == 2){
-            $tickets = Ticket::query()
-            ->join('services','services.name','=',$request->search)
-            ->where('user_id','=',$user_id) 
-            ->where('title', 'LIKE', "%{$request->search}%") 
-            ->get();
+            $tickets = Ticket::getByServiceId($request->service_id,$user_id);
+        }elseif($request->term == 3){
+            $tickets = Ticket::getByStatus($request->search,$user_id);
         }
 
-        return view('user.tickets',['tickets'=>$tickets]);
+        return $tickets;
     }
 
     public function create()

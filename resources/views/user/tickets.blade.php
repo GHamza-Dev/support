@@ -12,15 +12,21 @@
             @csrf
             <div class="flex flex-row">
                 <div>
-                    <select class="border border-gray-400 rounded-l-md" name="term" id="serlect">
+                    <select class="border border-gray-400 rounded-l-md" name="term" id="serlect-term">
                         <option selected value="1">Keywords</option>
                         <option value="2">Service</option>
                         <option value="3">Status</option>
                     </select>
                 </div>
                 <div class="grow">
-                    <input name="search" class="w-full border border-gray-400 rounded-r-md" type="search" placeholder="Hit Enter...">
+                    <input id="search-input" name="search" class="w-full border border-gray-400" type="search" placeholder="Hit Enter...">
+                    <select class="w-full border border-gray-400 hidden" name="service_id" id="select-service">
+                        @foreach ($services as $service)
+                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
+                <button class="bg-blue-600 font-semibold text-white border border-blue-600 rounded-r-md">Search</button>
             </div>
         </form>
     </div>
@@ -60,3 +66,18 @@
         </div>
     @endforeach
 @endsection
+
+<script defer>
+    setTimeout(() => {
+       document.getElementById('serlect-term')
+       .addEventListener('change',(e)=>{
+            if (e.target.value == 2) {
+               document.getElementById('search-input').classList.add('hidden');
+               document.getElementById('select-service').classList.remove('hidden');
+            }else{
+                document.getElementById('search-input').classList.remove('hidden');
+                document.getElementById('select-service').classList.add('hidden');
+            }
+        }) 
+    }, 1000);
+</script>
