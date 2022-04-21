@@ -6,12 +6,12 @@
         <ul class="mt-7">
             <li class="relative px-6 py-3">
                 <i class="fa-solid fa-house-chimney"></i>
-                <a href="{{ route('ticket.all') }}">
+                <a href="{{ route('admin.tickets') }}">
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a href="#">
+                <a href="{{ route('services.all') }}">
                     <span class="ml-4">Services</span>
                 </a>
             </li>
@@ -23,6 +23,11 @@
             <li class="relative px-6 py-3">
                 <a href="#">
                     <span class="ml-4">Users</span>
+                </a>
+            </li>
+            <li class="relative px-6 py-3">
+                <a href="{{ route('ticket.all') }}">
+                    <span class="ml-4">User view</span>
                 </a>
             </li>
         </ul>

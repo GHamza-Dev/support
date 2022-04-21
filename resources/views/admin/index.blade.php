@@ -42,7 +42,7 @@
                             <td class="px-4 py-3 text-sm min-h-full flex justify-evenly items-center">
                                 <a href="{{ route('show.ticket', ['id' => $tkt->id]) }}"><span><i
                                             class="fa-solid fa-eye"></i> View</span></a>
-                                <span><i class="fa-solid fa-circle-xmark"></i> Close</span>
+                                <span><i class="fa-solid fa-circle-xmark"></i><a href="{{ route('close.ticket',['id'=>$tkt->id]) }}">Close</a></span>
                             </td>
                         </tr>
                     @endforeach
