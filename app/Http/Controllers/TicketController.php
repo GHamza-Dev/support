@@ -67,6 +67,8 @@ class TicketController extends Controller
             'description' => $request->description,
         ]);
 
+        // dd($ticket);
+
         $request->session()->flash('alert',['status'=> 'success','msg'=>'You have successfully created a ticket']);
         return redirect()->route('create.ticket');
 

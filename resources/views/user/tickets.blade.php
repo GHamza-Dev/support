@@ -65,6 +65,9 @@
             <!-- End ticket footer -->
         </div>
     @endforeach
+    <div class="my-8 w-full max-w-lg mx-auto">
+        {{ $tickets->links() }}
+    </div>
 @endsection
 
 <script defer>
