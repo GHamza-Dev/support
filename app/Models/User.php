@@ -34,6 +34,6 @@ class User extends Authenticatable
 
     public function answers()
     {
-        return $this->morphMany(Answer::class, 'answerable');
+        return $this->hasMany(Answer::class);
     }
 }

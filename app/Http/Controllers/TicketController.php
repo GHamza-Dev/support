@@ -24,7 +24,16 @@ class TicketController extends Controller
         return view('user.tickets',['tickets'=>$tickets,'services'=>Service::all()]);
     }
 
-    public function search(Request $request,$user_id){
+    public function getAllTickets(Request $request){
+
+        if ($request->method() === 'POST') {
+            $tickets = $this->search($request);
+        }else $tickets = Ticket::getAll(); 
+        
+        return view('admin.index',['tickets'=>$tickets,'services'=>Service::all()]);
+    }
+
+    public function search(Request $request,$user_id = null){
         $tickets = [];
 
         if ($request->term == 1) {
@@ -71,7 +80,7 @@ class TicketController extends Controller
                 ->where('tickets.id','=',$id)
                 ->get();
         
-        $answers = Answer::all()->where('ticket_id','=',$id);
+        $answers = Answer::getTicketAnswers($id);
         
         return view('answers',['ticket'=>$ticket[0],'answers'=>$answers]);
     }

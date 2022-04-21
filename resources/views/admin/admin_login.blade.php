@@ -18,7 +18,7 @@
         <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">Login</h2>
       
-          <form action="{{ route('admin.login') }}" method="POST" class="max-w-lg border rounded-lg mx-auto">
+          <form action="{{ route('login') }}" method="POST" class="max-w-lg border rounded-lg mx-auto">
             <div class="flex flex-col gap-4 p-4 md:p-8">
                 @csrf
               <div>

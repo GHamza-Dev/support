@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Answer extends Model
 {
@@ -12,12 +13,15 @@ class Answer extends Model
     protected $fillable = [
         'content',
         'ticket_id',
-        'answerable_id',
-        'answerable_type'
+        'user_id',
     ];
 
-    public function answerable()
-    {
-        return $this->morphTo();
+    public static function getTicketAnswers($ticket_id){
+        return DB::table('answers')
+               ->leftJoin('users','users.id','=','answers.user_id')
+               ->where('ticket_id','=',$ticket_id)
+               ->select('users.role','answers.*')
+               ->get(); 
     }
+
 }

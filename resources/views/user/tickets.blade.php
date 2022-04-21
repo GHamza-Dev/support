@@ -51,7 +51,7 @@
             <!-- ticket body -->
             <div class="mt-3">
                 <h3 class="text-2xl">{{ $tkt->title }}</h3>
-                <p class="mt-3">{{ $tkt->description }}</p>
+                <p class="mt-3 max-w-[120ch] text-ellipsis overflow-hidden whitespace-nowrap">{{ $tkt->description }}</p>
             </div>
             <!-- End ticket body -->
             <!-- ticket footer -->

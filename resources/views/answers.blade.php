@@ -47,7 +47,7 @@
                     <div class="w-6 h-6 bg-blue-600 border-4 border-blue-300 rounded-full"></div>
                     <span class="ml-2">{{ $answer->created_at }}</span>
                 </div>
-                <p class="border {{ $answer->answerable_type === 'admin' ? 'border-blue-300' : 'border-blue-600'}} rounded-md p-2">
+                <p class="border {{ $answer->role === 'admin' ? 'border-blue-300' : 'border-blue-600'}} rounded-md p-2">
                     {{ $answer->content }}
                 </p>
             </div>
@@ -61,7 +61,6 @@
                 <div class="border border-green-600 rounded-md p-2">
                     <form action="{{ route('add.answer') }}" method="post">
                         @csrf
-                        <input type="hidden" name='answerable_id' value="{{ $ticket->user_id }}">
                         <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
                         <textarea id="add-answer" name="content" rows="5" class="h-full w-full border-none appearance-none block bg-gray-100 text-gray-700 border rounded leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="Your answer..."></textarea>
                         <div class="w-full mt-2 px-3 grid place-content-end">

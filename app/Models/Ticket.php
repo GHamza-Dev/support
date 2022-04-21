@@ -34,7 +34,7 @@ class Ticket extends Model
     }
 
     public static function getAll($uid = null){
-        return self::_getTickets($uid)->get();
+        return self::_getTickets($uid)->paginate(8);
     }
 
     public static function getByKeyword($keyword,$uid = null){
