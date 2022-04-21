@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
@@ -41,6 +42,14 @@ Route::prefix('ticket')->group(function(){
 
 Route::prefix('answer')->group(function(){
     Route::post('/store',[AnswerController::class,'store'])->middleware(['auth'])->name('add.answer');
+});
+
+// --> Service:
+
+Route::prefix('service')->group(function(){
+    Route::get('/index',[ServiceController::class,'index'])->middleware(['auth'])->name('services.all');
+    Route::post('/store',[ServiceController::class,'store'])->middleware(['auth'])->name('services.add');
+    Route::get('/remove/{id}',[ServiceController::class,'remove'])->middleware(['auth'])->name('services.remove');
 });
 
 // --> User: Logout
