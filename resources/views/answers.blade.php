@@ -47,7 +47,7 @@
                     <div class="w-6 h-6 bg-blue-600 border-4 border-blue-300 rounded-full"></div>
                     <span class="ml-2">{{ $answer->created_at }}</span>
                 </div>
-                <p class="border {{ $answer->role === 'admin' ? 'border-blue-300' : 'border-blue-600'}} rounded-md p-2">
+                <p class="border {{ $answer->role === 0 ? 'border-blue-200' : 'border-blue-600'}} rounded-md p-2">
                     {{ $answer->content }}
                 </p>
             </div>
