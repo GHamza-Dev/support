@@ -23,8 +23,6 @@ class AnswerController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        // dd(auth()->user()->id);
-
         $ticket = Ticket::find($request->ticket_id);
         $ticket->status = 'answered';
         $ticket->save();
