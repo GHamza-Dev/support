@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a href="#">
+                <a href="{{ route('users.all') }}">
                     <span class="ml-4">Users</span>
                 </a>
             </li>
