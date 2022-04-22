@@ -40,19 +40,19 @@ class Ticket extends Model
     public static function getByKeyword($keyword,$uid = null){
         return self::_getTickets($uid)
             ->where('title', 'LIKE', "%{$keyword}%") 
-            ->get();
+            ->paginate(8);
     }
     
     public static function getByServiceId($sid,$uid = null){
         return self::_getTickets($uid)
             ->where('service_id','=',$sid) 
-            ->get();
+            ->paginate(8);
     }
     
     public static function getByStatus($status,$uid = null){
         return self::_getTickets($uid)
             ->where('status','LIKE',$status) 
-            ->get();
+            ->paginate(8);
     }
 
 }
