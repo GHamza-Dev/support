@@ -15,7 +15,7 @@ class TicketController extends Controller
 
     public function index(Request $request)
     {
-        $user_id = auth::user()->id;
+        $user_id = auth()->user()->role != 1 ? auth()->user()->id : null;
 
         if ($request->method() === 'POST') {
             $tickets = $this->search($request,$user_id);
