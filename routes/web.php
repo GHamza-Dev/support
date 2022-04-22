@@ -37,6 +37,7 @@ Route::prefix('ticket')->group(function(){
     Route::get('/solve/{id}',[TicketController::class,'solve'])->middleware(['auth'])->name('solve.ticket');
     Route::get('/close/{id}',[TicketController::class,'close'])->middleware(['auth'])->name('close.ticket');
     Route::get('/all',[TicketController::class,'getAllTickets'])->middleware(['auth'])->name('admin.tickets');
+    Route::post('/all',[TicketController::class,'getAllTickets'])->middleware(['auth'])->name('admin.search');
 });
 
 // --> Answer:

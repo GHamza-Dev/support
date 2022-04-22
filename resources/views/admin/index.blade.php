@@ -55,3 +55,17 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+    <script>
+        document.getElementById('serlect-term').addEventListener('change',(e)=>{
+            if (e.target.value == 2) {
+                document.getElementById('search-input').classList.add('hidden');
+                document.getElementById('select-service').classList.remove('hidden');
+            }else{
+                document.getElementById('search-input').classList.remove('hidden');
+                document.getElementById('select-service').classList.add('hidden');
+            }
+        }); 
+    </script>    
+@endsection
