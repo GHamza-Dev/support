@@ -66,7 +66,7 @@
                                         <i class="action fa-solid fa-circle-minus"></i>
                                         <span class="opacity-0 transition-opacity tooltip text-slate-100 absolute -top-6 left-1/2 -translate-x-1/2 text-sm bg-slate-700 py-1 px-2 rounded">Delete</span>
                                     </a>
-                                    <a class="text-blue-600 text-xl relative" href="{{ route('users.remove',['id'=>$user->id]) }}">
+                                    <a class="text-blue-600 text-xl relative" href="mailto:{{ $user->email }}">
                                         <i class="action fa-solid fa-envelope"></i>
                                         <span class="opacity-0 transition-opacity duration-200 tooltip text-slate-100 absolute -top-6 left-1/2 -translate-x-1/2 text-sm bg-slate-700 py-1 px-2 rounded">Email</span>
                                     </a>
