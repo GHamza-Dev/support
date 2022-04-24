@@ -8,9 +8,7 @@
     - [Back-end:](#back-end)
 - [Screenshots](#screenshots)
   - [Front-office](#front-office)
-    - [Landing page](#landing-page)
-    - [Tickets page](#tickets-page)
-    - [Answers page](#answers-page)
+  - [Back-office](#back-office)
 
 
 ## About support
@@ -33,15 +31,31 @@ Support is a web application that allows users and admins to create tickets and 
 
 ## Front-office
 
-### Landing page
+* ### Landing page
 
 ![landing page](./readme-assets/landing-page.png)
 
-### Tickets page
+* ### Tickets page
 
-![landing page](./readme-assets/tickets-page.png)
+![tickets page](./readme-assets/tickets-page.png)
 
-### Answers page
+* ### Answers page
 
-![landing page](./readme-assets/answers-page.png)
+![answers page](./readme-assets/answers-page.png)
+
+## Back-office
+
+* ### Show ticket
+
+![tickets page](./readme-assets/admin-tickets-page.png)
+
+* ### Show Users
+
+![users page](./readme-assets/admin.users.page.png)
+
+* ### Show Services
+
+![services page](./readme-assets/admin.services.page.png)
+
+
 
